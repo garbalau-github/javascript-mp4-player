@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vanilla Video Player</title>
+    <link rel="stylesheet" href="css/app.css">
+</head>
+<body>
+
+    <div class="container">
+
+        <h1>Custom Vanilla Player</h1>
+
+        <video width="400" height="300" id="video-player">
+            <source src="video/evolution.mp4" type="video/mp4">
+        </video>
+
+        <div>
+            <p>Progress:</p>
+            <progress id="progress" style="width: 80%; margin: 0 auto;" max="100" value="0"></progress>
+            <br>        
+        </div>
+        <div>
+            <p id="out">0</p>
+        </div>
+
+        <br>
+
+        <div>
+            <button id="play">Play</button>
+            <button id="pause">Pause</button>
+            <button id="stop">Stop</button>
+            <button id="speed-up">Speed Up</button>
+            <button id="speed-down">Speed Down</button>
+            <button id="speed-normal">Speed Normal</button>
+
+            <br>
+            
+            <div><input min="0" max="100" id="volume" type="range">Sound</div>
+
+        </div>
+
+    </div>
+
+    <script src="js/app.js"></script>
+</body>
+</html>

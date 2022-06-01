@@ -17,56 +17,55 @@ progress = document.querySelector('#progress');
 video.ontimeupdate = progressUpdate;
 progress.onclick = videoRewind;
 
-function play () {
-    video.play();
+function play() {
+  video.play();
 }
 
-function pause () {
-    video.pause();
+function pause() {
+  video.pause();
 }
 
-function stop () {
-    video.pause();
-    video.currentTime = 0;
+function stop() {
+  video.pause();
+  video.currentTime = 0;
 }
 
-function speedUp () {
-    video.play();
-    video.playbackRate = 2;
+function speedUp() {
+  video.play();
+  video.playbackRate = 2;
 }
 
-function speedDown () {
-    video.play();
-    video.playbackRate = 0.5;
+function speedDown() {
+  video.play();
+  video.playbackRate = 0.5;
 }
 
-function speedNormal () {
-    video.play();
-    video.playbackRate = 1;
+function speedNormal() {
+  video.play();
+  video.playbackRate = 1;
 }
 
-function videoVolume () {
-    let v = this.value;
-    video.volume = v / 100; // % only
+function videoVolume() {
+  let v = this.value;
+  video.volume = v / 100;
 }
 
-function progressUpdate () {
+function progressUpdate() {
+  // Get duration
+  let d = video.duration;
+  let c = video.currentTime;
 
-    // Get duration
-    let d = video.duration;
-    let c = video.currentTime;
+  progress.value = (100 * c) / d;
 
-    progress.value = (100 * c) / d;
-
-    // Show output
-    document.querySelector('#out').innerHTML = video.currentTime;
+  // Show output
+  document.querySelector('#out').innerHTML = video.currentTime;
 }
 
-function videoRewind (event) {
-    let w = this.offsetWidth;
-    let o = event.offsetX;
-    this.value = (o / w) * 100;
-    video.pause();
-    video.currentTime = video.duration * (o / w);
-    video.play();
+function videoRewind(event) {
+  let w = this.offsetWidth;
+  let o = event.offsetX;
+  this.value = (o / w) * 100;
+  video.pause();
+  video.currentTime = video.duration * (o / w);
+  video.play();
 }
